@@ -8,11 +8,18 @@ export default function LoadScreen ({navigation}) {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.logo}>Circuit Scanner</Text>
+        
         <Image
           style={styles.image}
           source={{
-            uri: "https://i.imgur.com/hyRQjdE.png",
+            uri: "https://i.imgur.com/eQ5Fv26.png",
+          }}
+          contentFit="contain"
+        />
+        <Image
+          style={styles.image2}
+          source={{
+            uri: "https://i.imgur.com/OcpoUw8.png",
           }}
           contentFit="contain"
         />
@@ -38,7 +45,14 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         width: '50%',
-        height: '50%'
+        height: '10%',
+        alignSelf: 'middle'
+      },
+      image2: {
+        flex: 1,
+        width: '100%',
+        height: '10%',
+        alignSelf: 'middle'
       },
 });
     

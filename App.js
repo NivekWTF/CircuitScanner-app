@@ -8,13 +8,13 @@ import {useFonts} from 'expo-font';
 import { Image } from 'expo-image';
 import LoginScreen from './assets/screens/LoginScreen';
 import HomeScreen from './assets/screens/HomeScreen';
+import CameraScreen from './assets/screens/CameraScreen';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoadScreen from './assets/screens/LoadScreen';
 
 const Stack = createNativeStackNavigator();
-
 
 
 export default function App() {
@@ -28,9 +28,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName= "Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Load" component={LoadScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Load" component={LoadScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Camera" component={CameraScreen} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

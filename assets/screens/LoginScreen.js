@@ -2,6 +2,11 @@ import {View, Text, StyleSheet, TouchableOpacity, TextInput} from 'react-native'
 import {useFonts} from 'expo-font';
 import * as Font from 'expo-font';
 import { Image } from 'expo-image';
+import { StatusBar } from 'expo-status-bar';
+import Google from '../Icons/google.png';
+import Facebook from '../Icons/facebook.png';
+import Apple from '../Icons/apple.png';
+import Logo from '../Icons/logo_circuit.png';
 
 
 
@@ -14,34 +19,32 @@ export default function LoginScreen({navigation}) {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.logo}>Circuit Scanner</Text>
+        <Image style={styles.image} source={Logo}/>
         <TouchableOpacity style={styles.loginBtn}>
+          <Image source={Google} style={styles.buttonImage} />
           <Text style={styles.loginText}>Google</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.loginBtn}>
+          <Image source={Facebook} style={styles.buttonImage} />
           <Text style={styles.loginText}>Facebook</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.loginBtn}>
+        <Image source={Apple} style={styles.buttonImage} />
           <Text style={styles.loginText}>Apple</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.separador}></TouchableOpacity>
 
-        <TextInput style={styles.textInput}>
-          <Text>
-            <Text style={{fontFamily: 'Montserrat', fontWeight: 900, color:'#6d7d87' }}>Correo electrónico o teléfono*</Text>
-          </Text>
+        <TextInput style={styles.textInput} placeholder='Correo electrónico o teléfono*'>
         </TextInput>
 
-        <TextInput style={styles.textInput}>
-          <Text>
-            <Text style={{fontFamily: 'Montserrat', fontWeight: 900, color:'#6d7d87' }}>Contraseña*</Text>
-          </Text>
+        <TextInput style={styles.textInput} placeholder='Contraseña' secureTextEntry={true}>
+          
         </TextInput>
 
-        <TouchableOpacity style={styles.boton_login} onPress={()=> navigation.navigate("Load")}>
+        <TouchableOpacity style={styles.boton_login} onPress={()=> navigation.navigate("Camera")}>
           <Text style={styles.signupText}>Iniciar Sesión</Text>
         </TouchableOpacity>
 
@@ -49,7 +52,7 @@ export default function LoginScreen({navigation}) {
           <Text style={styles.forgottenText}>Olvidé mi contraseña</Text>
         </TouchableOpacity>
 
-        <Text style={{fontSize:12,fontFamily: 'Montserrat',color:'#f9f9f9', marginTop:50 }}>Al ingresar aceptas nuestras Políticas de privacidad</Text>
+        <Text style={{fontSize:12,fontFamily: 'Montserrat',color:'#f9f9f9', marginTop:50, marginBottom:15 }}>Al ingresar aceptas nuestras Políticas de privacidad</Text>
 
         
       </View>
@@ -67,6 +70,24 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 0,
     },
+    logo:{
+        flex: 1,
+        width: '80%',
+        justifyContent: 'center',
+        marginBottom: 43,
+    },
+    image: {
+        width: '60%',
+        height: '20%',
+        resizeMode: 'contain', 
+      },
+
+      buttonImage: {
+        width: '65%',
+        height: '65%',
+        resizeMode: 'contain',
+        marginLeft: -220,
+      },
     separador:{
         backgroundColor: '#f9f9f9',
         height: 1,
@@ -84,6 +105,8 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 10,
         paddingLeft: 20,
+        fontFamily: 'Montserrat',
+        color:'#6d7d87'
     },
 
     logo: {
@@ -105,12 +128,12 @@ const styles = StyleSheet.create({
         width: '90%',
         backgroundColor: '#f9f9f9',
         borderRadius: 25,
-        
         height: 47,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 10,
-        marginBottom: 10
+        marginBottom: 10,
+        flexDirection: 'row',
     },
     loginText: {
         color: '#163348',
